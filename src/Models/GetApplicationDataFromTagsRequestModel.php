@@ -1,78 +1,61 @@
-<?php 
+<?php
 /*
  * SMARTCOSMOSProfilesLib
  *
- * This file was automatically generated for SMARTRAC Technology Fletcher, Inc. by APIMATIC v2.0 on 04/01/2016
+ * This file was automatically generated for SMARTRAC Technology Fletcher, Inc. by APIMATIC v2.0 ( https://apimatic.io ).
  */
 
 namespace SMARTCOSMOSProfilesLib\Models;
 
 use JsonSerializable;
 
-class GetApplicationDataFromTagsRequestModel implements JsonSerializable {
+/**
+ * @todo Write general description for this model
+ */
+class GetApplicationDataFromTagsRequestModel implements JsonSerializable
+{
     /**
-     * TODO: Write general description for this property
-     * @param array $tagIds public property
+     * @todo Write general description for this property
+     * @required
+     * @var string $appId public property
      */
-    protected $tagIds;
+    public $appId;
 
     /**
-     * TODO: Write general description for this property
-     * @param string $appId public property
+     * @todo Write general description for this property
+     * @required
+     * @var array $tagIds public property
      */
-    protected $appId;
+    public $tagIds;
+
+    /**
+     * All additional properties for this model
+     * @var array $additionalProperties public property
+     */
+    public $additionalProperties = array();
 
     /**
      * Constructor to set initial or default values of member properties
-	 * @param   array             $tagIds   Initialization value for the property $this->tagIds
-	 * @param   string            $appId    Initialization value for the property $this->appId 
+     * @param string $appId  Initialization value for $this->appId
+     * @param array  $tagIds Initialization value for $this->tagIds
      */
     public function __construct()
     {
-        if(2 == func_num_args())
-        {
-            $this->tagIds = func_get_arg(0);
-            $this->appId  = func_get_arg(1);
+        if (2 == func_num_args()) {
+            $this->appId  = func_get_arg(0);
+            $this->tagIds = func_get_arg(1);
         }
     }
 
-    /**
-     * Return a property of the response if it exists.
-     * Possibilities include: code, raw_body, headers, body (if the response is json-decodable)
-     * @return mixed
-     */
-    public function __get($property)
-    {
-        if (property_exists($this, $property)) {
-            //UTF-8 is recommended for correct JSON serialization
-            $value = $this->$property;
-            if (is_string($value) && mb_detect_encoding($value, "UTF-8", TRUE) != "UTF-8") {
-                return utf8_encode($value);
-            }
-            else {
-                return $value;
-            }
-        }
-    }
     
     /**
-     * Set the properties of this object
-     * @param string $property the property name
-     * @param mixed $value the property value
+     * Add an additional property to this model.
+     * @param string $name  Name of property
+     * @param mixed $value Value of property
      */
-    public function __set($property, $value)
+    public function addAdditionalProperty($name, $value)
     {
-        if (property_exists($this, $property)) {
-            //UTF-8 is recommended for correct JSON serialization
-            if (is_string($value) && mb_detect_encoding($value, "UTF-8", TRUE) != "UTF-8") {
-                $this->$property = utf8_encode($value);
-            }
-            else {
-                $this->$property = $value;
-            }
-        }
-
-        return $this;
+        $this->additionalProperties[$name] = $value;
     }
 
     /**
@@ -81,8 +64,9 @@ class GetApplicationDataFromTagsRequestModel implements JsonSerializable {
     public function jsonSerialize()
     {
         $json = array();
-        $json['tagIds'] = $this->tagIds;
         $json['appId']  = $this->appId;
-        return $json;
+        $json['tagIds'] = $this->tagIds;
+
+        return array_merge($json, $this->additionalProperties);
     }
 }

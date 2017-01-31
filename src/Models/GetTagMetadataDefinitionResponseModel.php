@@ -12,14 +12,21 @@ use JsonSerializable;
 /**
  * @todo Write general description for this model
  */
-class VerifyNXPTagSignatureRequestModel implements JsonSerializable
+class GetTagMetadataDefinitionResponseModel implements JsonSerializable
 {
     /**
      * @todo Write general description for this property
      * @required
-     * @var string $signature public property
+     * @var integer $code public property
      */
-    public $signature;
+    public $code;
+
+    /**
+     * @todo Write general description for this property
+     * @required
+     * @var array $properties public property
+     */
+    public $properties;
 
     /**
      * @todo Write general description for this property
@@ -29,13 +36,6 @@ class VerifyNXPTagSignatureRequestModel implements JsonSerializable
     public $tagId;
 
     /**
-     * @todo Write general description for this property
-     * @required
-     * @var string $tagVersion public property
-     */
-    public $tagVersion;
-
-    /**
      * All additional properties for this model
      * @var array $additionalProperties public property
      */
@@ -43,16 +43,16 @@ class VerifyNXPTagSignatureRequestModel implements JsonSerializable
 
     /**
      * Constructor to set initial or default values of member properties
-     * @param string $signature  Initialization value for $this->signature
-     * @param string $tagId      Initialization value for $this->tagId
-     * @param string $tagVersion Initialization value for $this->tagVersion
+     * @param integer $code       Initialization value for $this->code
+     * @param array   $properties Initialization value for $this->properties
+     * @param string  $tagId      Initialization value for $this->tagId
      */
     public function __construct()
     {
         if (3 == func_num_args()) {
-            $this->signature  = func_get_arg(0);
-            $this->tagId      = func_get_arg(1);
-            $this->tagVersion = func_get_arg(2);
+            $this->code       = func_get_arg(0);
+            $this->properties = func_get_arg(1);
+            $this->tagId      = func_get_arg(2);
         }
     }
 
@@ -73,9 +73,9 @@ class VerifyNXPTagSignatureRequestModel implements JsonSerializable
     public function jsonSerialize()
     {
         $json = array();
-        $json['signature']  = $this->signature;
+        $json['code']       = $this->code;
+        $json['properties'] = $this->properties;
         $json['tagId']      = $this->tagId;
-        $json['tagVersion'] = $this->tagVersion;
 
         return array_merge($json, $this->additionalProperties);
     }

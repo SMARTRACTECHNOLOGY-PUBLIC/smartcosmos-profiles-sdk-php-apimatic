@@ -12,28 +12,21 @@ use JsonSerializable;
 /**
  * @todo Write general description for this model
  */
-class VerifyNXPTagSignatureRequestModel implements JsonSerializable
+class GetTagDeliveryNetworkDataResponseModel implements JsonSerializable
 {
     /**
      * @todo Write general description for this property
      * @required
-     * @var string $signature public property
+     * @var integer $code public property
      */
-    public $signature;
+    public $code;
 
     /**
      * @todo Write general description for this property
      * @required
-     * @var string $tagId public property
+     * @var string $value public property
      */
-    public $tagId;
-
-    /**
-     * @todo Write general description for this property
-     * @required
-     * @var string $tagVersion public property
-     */
-    public $tagVersion;
+    public $value;
 
     /**
      * All additional properties for this model
@@ -43,16 +36,14 @@ class VerifyNXPTagSignatureRequestModel implements JsonSerializable
 
     /**
      * Constructor to set initial or default values of member properties
-     * @param string $signature  Initialization value for $this->signature
-     * @param string $tagId      Initialization value for $this->tagId
-     * @param string $tagVersion Initialization value for $this->tagVersion
+     * @param integer $code  Initialization value for $this->code
+     * @param string  $value Initialization value for $this->value
      */
     public function __construct()
     {
-        if (3 == func_num_args()) {
-            $this->signature  = func_get_arg(0);
-            $this->tagId      = func_get_arg(1);
-            $this->tagVersion = func_get_arg(2);
+        if (2 == func_num_args()) {
+            $this->code  = func_get_arg(0);
+            $this->value = func_get_arg(1);
         }
     }
 
@@ -73,9 +64,8 @@ class VerifyNXPTagSignatureRequestModel implements JsonSerializable
     public function jsonSerialize()
     {
         $json = array();
-        $json['signature']  = $this->signature;
-        $json['tagId']      = $this->tagId;
-        $json['tagVersion'] = $this->tagVersion;
+        $json['code']  = $this->code;
+        $json['value'] = $this->value;
 
         return array_merge($json, $this->additionalProperties);
     }
