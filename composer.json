@@ -1,0 +1,34 @@
+{
+    "name": "apimatic/smartcosmosprofiles",
+    "type": "library",
+    "description": "Profiles provides full transparency into supply chain and manufacturing metadata associated with all types of RFID transponders, setting a new standard in customer self-service. By providing both Web and Web Service access to supply chain metadata, customers are managing their RFID-enabled IP and technical data in a highly efficient manner",
+    "keywords": ["SMART COSMOS Profiles","API","SDK"],
+    "homepage": "https://apimatic.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zeeshan @ APIMATIC",
+            "email": "zeeshan@apimatic.io",
+            "homepage": "https://github.com/apimatic",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/apimatic/unirest-php"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "apimatic/unirest-php": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "SMARTCOSMOSProfilesLib\\": "src/"
+        }
+    }
+}
